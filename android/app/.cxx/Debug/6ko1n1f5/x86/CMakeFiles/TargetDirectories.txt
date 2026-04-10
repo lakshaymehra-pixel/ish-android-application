@@ -1,0 +1,2 @@
+/Users/bhavishchhabra/Downloads/Development/Salarytopup/android/app/.cxx/Debug/6ko1n1f5/x86/CMakeFiles/edit_cache.dir
+/Users/bhavishchhabra/Downloads/Development/Salarytopup/android/app/.cxx/Debug/6ko1n1f5/x86/CMakeFiles/rebuild_cache.dir

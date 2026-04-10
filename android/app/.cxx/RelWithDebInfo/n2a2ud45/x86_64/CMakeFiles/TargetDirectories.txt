@@ -1,0 +1,2 @@
+/Users/bhavish/StudioProjects/tejas_loan copy/android/app/.cxx/RelWithDebInfo/n2a2ud45/x86_64/CMakeFiles/rebuild_cache.dir
+/Users/bhavish/StudioProjects/tejas_loan copy/android/app/.cxx/RelWithDebInfo/n2a2ud45/x86_64/CMakeFiles/edit_cache.dir

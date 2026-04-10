@@ -1,0 +1,2 @@
+/Users/bhavish/Downloads/Tejas_APP/android/app/.cxx/Debug/1i6l6d2t/x86/CMakeFiles/rebuild_cache.dir
+/Users/bhavish/Downloads/Tejas_APP/android/app/.cxx/Debug/1i6l6d2t/x86/CMakeFiles/edit_cache.dir
