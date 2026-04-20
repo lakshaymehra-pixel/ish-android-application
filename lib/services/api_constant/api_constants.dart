@@ -12,8 +12,8 @@ class APIConstants {
   }
 
   //End Points
-  static const UATBaseUrlSURF = 'https://salarytopup.in/api/';
-  static const PRODBaseUrlSURF = 'https://salarytopup.in/api/';
+  static const UATBaseUrlSURF = 'https://crm.salarytopup.in/api/';
+  static const PRODBaseUrlSURF = 'https://crm.salarytopup.in/api/';
   static const LOGIN = '/saveCustomerProfile';
   static const RESEND = '/saveCustomerProfile';
   static const VERFIYOTP = '/saveCustomerProfile';
