@@ -21,9 +21,7 @@ jobs:
           channel: 'stable'
 
       - name: Install dependencies
-        run: |
-          flutter pub add hl_image_picker:1.2.11 hl_image_picker_ios:1.2.11
-          flutter pub get
+        run: flutter pub get
 
       - name: Build iOS (no codesign)
         run: flutter build ios --release --no-codesign --dart-define=FLAVOR=prod
