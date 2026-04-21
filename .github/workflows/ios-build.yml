@@ -24,7 +24,7 @@ jobs:
         run: flutter pub get
 
       - name: Build iOS (no codesign)
-        run: flutter build ios --release --no-codesign --flavor prod --dart-define=FLAVOR=prod
+        run: flutter build ios --release --no-codesign --dart-define=FLAVOR=prod
 
       - name: Create IPA
         run: |
