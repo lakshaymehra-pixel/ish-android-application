@@ -5,7 +5,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:hl_image_picker/hl_image_picker.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:tejas_loan/custom_widgets/custom_toast_snack_bar.dart';
 import 'package:tejas_loan/main.dart';
 import 'package:tejas_loan/models/requiredDocs.dart';
@@ -20,23 +20,12 @@ import 'internet_connectivity_controller.dart';
 
 class DocController extends GetxController {
   ConnectionManagerController connectionManagerController = Get.find<ConnectionManagerController>();
-  HLImagePicker picker = HLImagePicker();
+  ImagePicker picker = ImagePicker();
   final _connectionManagerController = Get.put(ConnectionManagerController());
   var selectedImages = [].obs;
   var docs = [].obs;
 
-  var isCroppingEnabled = false;
   var count = 1;
-  var type = MediaType.all;
-  var isExportThumbnail = true;
-  var enablePreview = false;
-  var usedCameraButton = true;
-  var numberOfColumn = 3;
-  var includePrevSelected = false;
-  var aspectRatio;
-  var aspectRatioPresets;
-  double compressQuality = 0.9;
-  CroppingStyle croppingStyle = CroppingStyle.normal;
   var images = [].obs;
   var file = File('').obs;
   var fileName = "".obs;

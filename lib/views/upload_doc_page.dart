@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hl_image_picker/hl_image_picker.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:lean_file_picker/lean_file_picker.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tejas_loan/controller/docController.dart';
@@ -59,37 +59,21 @@ class DocPage extends GetView<DocController> {
                                 if (GetPlatform.isIOS &&
                                     controller.requiedDocList![index].allowedFormat.toString() != "document") {
                                   try {
-                                    controller.images.value = await controller.picker.openPicker(
-                                      cropping: controller.isCroppingEnabled,
-                                      selectedIds: controller.includePrevSelected
-                                          ? controller.selectedImages.value.map((e) => e.id.toString()).toList()
-                                          : null,
-                                      pickerOptions: HLPickerOptions(
-                                        mediaType: controller.type,
-                                        enablePreview: controller.enablePreview,
-                                        isExportThumbnail: controller.isExportThumbnail,
-                                        thumbnailCompressFormat: CompressFormat.jpg,
-                                        thumbnailCompressQuality: 0.9,
-                                        maxSelectedAssets: controller.count,
-                                        usedCameraButton: controller.usedCameraButton,
-                                        numberOfColumn: 3,
-                                        isGif: false,
-                                      ),
+                                    final XFile? picked = await controller.picker.pickImage(
+                                      source: ImageSource.gallery,
+                                      imageQuality: 90,
                                     );
-
-                                    if (controller.images.value.isNotEmpty) {
-                                      controller.file.value = File(controller.images.value[0].path);
-                                      controller.size.value = (controller.images.value[0].size / 1024).toInt();
-                                      controller.fileName.value = controller.images.value[0].name;
-                                      controller.Doc.value = File(controller.images.value[0].path);
-                                      controller.extension.value = controller.images[0].path.split(".").last;
+                                    if (picked != null) {
+                                      controller.file.value = File(picked.path);
+                                      controller.size.value = (File(picked.path).lengthSync() / 1024).toInt();
+                                      controller.fileName.value = picked.name;
+                                      controller.Doc.value = File(picked.path);
+                                      controller.extension.value = picked.path.split(".").last;
                                     } else {
-                                      print("No file selected");
                                       return null;
                                     }
                                   } catch (e) {
                                     print(e.toString());
-
                                     return null;
                                   }
                                 } else {
