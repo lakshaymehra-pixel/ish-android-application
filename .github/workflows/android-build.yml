@@ -1,0 +1,65 @@
+name: Android Build
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.0'
+          channel: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build APK (release)
+        run: flutter build apk --release
+
+      - name: Read app version
+        id: app_version
+        run: |
+          VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | tr -d '\r')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "build_number=$(echo $VERSION | cut -d'+' -f2)" >> "$GITHUB_OUTPUT"
+
+      - name: Rename APK
+        run: |
+          mkdir -p build/app/outputs/release
+          cp build/app/outputs/flutter-apk/app-release.apk build/app/outputs/release/SalaryTopUp-${{ steps.app_version.outputs.version }}.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SalaryTopUp-Android
+          path: build/app/outputs/release/SalaryTopUp-${{ steps.app_version.outputs.version }}.apk
+          retention-days: 30
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.app_version.outputs.version }}-${{ github.run_number }}
+          name: SalaryTopUp v${{ steps.app_version.outputs.version }} (build ${{ github.run_number }})
+          files: build/app/outputs/release/SalaryTopUp-${{ steps.app_version.outputs.version }}.apk
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
