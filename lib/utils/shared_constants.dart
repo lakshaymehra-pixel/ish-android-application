@@ -93,9 +93,9 @@ class SharedConstants {
  static const Brand_Name = "Salarytopup ";
  static const ARD_Package_Name = "com.salarytopup.salarytopup";
  static const IOS_App_Id = "";
- static const instagram = "https://www.instagram.com/salarytopup/";
- static const facebook = "https://www.facebook.com/people/salarytopup/";
- static const twitter = "https://x.com/salarytopup";
+ static const instagram = "https://www.instagram.com/salary_topup";
+ static const facebook = "https://www.facebook.com/profile.php?id=61574094973748";
+ static const twitter = "https://x.com/SalaryTopup";
  static const youtube = "https://www.youtube.com/@salarytopup";
  static const gmaps = 'https://www.google.com/maps/place/NN+Mall/@28.6997176,77.1143893,18z/data=!3m1!5s0x390d03e30a35f7ad:0x81e6780ea7f99861!4m10!1m2!2m1!1sOffice+No-101,+First+Floor,NN+Mall,+Mangalam+Palace,Sector-3,+Rohini+Delhi-110085!3m6!1s0x390d03e30bfaaaab:0x9bf53f2531cf07f4!8m2!3d28.7014315!4d77.1165606!15sClFPZmZpY2UgTm8tMTAxLCBGaXJzdCBGbG9vcixOTiBNYWxsLCBNYW5nYWxhbSBQYWxhY2UsU2VjdG9yLTMsIFJvaGluaSBEZWxoaS0xMTAwODVaUCJOb2ZmaWNlIG5vIDEwMSBmaXJzdCBmbG9vciBubiBtYWxsIG1hbmdhbGFtIHBhbGFjZSBzZWN0b3IgMyByb2hpbmkgZGVsaGkgMTEwMDg1kgEPYnVzaW5lc3NfY2VudGVymgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVU5YY2pkUVRITm5SUkFCqgHLARABKlIiTm9mZmljZSBubyAxMDEgZmlyc3QgZmxvb3Igbm4gbWFsbCBtYW5nYWxhbSBwYWxhY2Ugc2VjdG9yIDMgcm9oaW5pIGRlbGhpIDExMDA4NSgAMh8QASIb3N3nebw29J8Nr-yHtxxARiMnHx_fHocipwQIMlIQAiJOb2ZmaWNlIG5vIDEwMSBmaXJzdCBmbG9vciBubiBtYWxsIG1hbmdhbGFtIHBhbGFjZSBzZWN0b3IgMyByb2hpbmkgZGVsaGkgMTEwMDg14AEA-gEECAAQIg!16s%2Fg%2F11hbv9xvzf?entry=ttu&g_ep=EgoyMDI1MDUwNi4wIKXMDSoASAFQAw%3D%3D';
  static const razorpayKey ="rzp_live_L7iGFEiE6MGnlN";

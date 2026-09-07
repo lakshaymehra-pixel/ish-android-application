@@ -10,9 +10,8 @@ import 'package:tejas_loan/custom_widgets/custom_toast_snack_bar.dart';
 import 'package:tejas_loan/main.dart';
 import 'package:tejas_loan/routes/routes_names.dart';
 import 'package:tejas_loan/views/feedback_page.dart';
-import 'package:tejas_loan/views/repay_page.dart';
+import 'package:tejas_loan/views/repayment_page.dart';
 import 'package:tejas_loan/views/terms_conditions_page.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../controller/theme_controller.dart';
 import '../services/api_constant/api_constants.dart';
@@ -173,8 +172,8 @@ class CustomDrawer extends StatelessWidget {
                       icon: FontAwesomeIcons.bank,
                       text: 'Repay Loan',
                       onTap: () {
-                        launchUrl(Uri.parse("https://salarytopup.com/repay-loan"),mode: LaunchMode.inAppWebView);
-                        // Get.to(const RepayPage());
+                        controller.advancedDrawerController.value.hideDrawer();
+                        Get.to(() => RepaymentPage());
                         controller.selectedDrawerIndex.value = 4;
 
                         // Handle Settings tap
@@ -267,11 +266,8 @@ class CustomDrawer extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           InkWell(
-                            onTap: () async{
-                              // Get.to(const TermsAndConditionsScreen());
-
-                              await launchUrl(Uri.parse(SharedConstants.Terms_Condition_Url),
-                              mode: LaunchMode.inAppWebView);
+                            onTap: () {
+                              Get.to(() => const TermsAndConditionsScreen());
                             },
                             child: Text(
                               '   Terms & Conditions',
@@ -279,11 +275,8 @@ class CustomDrawer extends StatelessWidget {
                             ),
                           ),
                           InkWell(
-                            onTap: () async{
-                              // Get.to(const PrivacyPolicyScreen());
-                              await launchUrl(Uri.parse(SharedConstants.Privacy_Policy_Url),
-                              mode: LaunchMode.inAppWebView);
-
+                            onTap: () {
+                              Get.to(() => const PrivacyPolicyScreen());
                             },
                             child: Text(
                               textAlign: TextAlign.left,

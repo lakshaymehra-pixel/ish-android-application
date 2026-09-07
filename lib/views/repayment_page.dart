@@ -7,7 +7,6 @@ import 'package:tejas_loan/custom_widgets/custom_appbar.dart';
 import 'package:tejas_loan/custom_widgets/custom_button.dart';
 import 'package:tejas_loan/main.dart';
 import 'package:tejas_loan/utils/shared_constants.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../controller/homeController.dart';
 import '../controller/internet_connectivity_controller.dart';
@@ -23,7 +22,6 @@ class RepaymentPage extends StatelessWidget {
   ConnectionManagerController connectionManagerController = Get.put(
     ConnectionManagerController(),
   );
-  var paymentType = [1, 2];
 
   @override
   Widget build(BuildContext context) {
@@ -85,59 +83,8 @@ class RepaymentPage extends StatelessWidget {
                       ShortMessage.toast(title: "No outstanding amount to repay");
                     } else {
                       if (homeController.loadingOnRepay.value == false) {
-                        launchUrl(Uri.parse("https://salarytopup.com/repay-loan"),mode: LaunchMode.inAppWebView);
-
-                        // Get.defaultDialog(
-                        //   title: "Select Payment Method",
-                        //   middleText:
-                        //       "Please select payment method to continue",
-                        //   actions: [
-                        //     if (paymentType.contains(1))
-                        //       SizedBox(
-                        //         width: Get.width * 0.25,
-                        //         height: 28.sp,
-                        //         child: ElevatedButton(
-                        //             style: ElevatedButton.styleFrom(
-                        //               backgroundColor: Color(
-                        //                   ColorConstants.secondaryColor),
-                        //               minimumSize:
-                        //                   Size(double.infinity, 50),
-                        //             ),
-                        //             onPressed: () {
-                        //               Get.back();
-                        //               homeController.generateHashValue(
-                        //                   prefs.getString(
-                        //                       SharedConstants.LOAN_LEAD_ID),
-                        //                   prefs.getString(
-                        //                       SharedConstants.OUT_AMT));
-                        //             },
-                        //             child: Text("PayU")),
-                        //       ),
-                        //     if (paymentType.contains(2))
-                        //       SizedBox(
-                        //         width: Get.width * 0.25,
-                        //         height: 28.sp,
-                        //         child: ElevatedButton(
-                        //             style: ElevatedButton.styleFrom(
-                        //               backgroundColor: Color(
-                        //                   ColorConstants.secondaryColor),
-                        //               minimumSize:
-                        //                   Size(double.infinity, 50),
-                        //             ),
-                        //             onPressed: () {
-                        //               // Get.back();
-                        //               homeController.generateOrderId(
-                        //                   prefs.getString(
-                        //                       SharedConstants.LOAN_LEAD_ID),
-                        //                   prefs.getString(
-                        //                       SharedConstants.OUT_AMT));
-                        //             },
-                        //             child: Text("RazorPay")),
-                        //       ),
-                        //   ],
-                        // );
-                        // homeController.generateOrderId(
-                        //     prefs.getString(SharedConstants.LOAN_LEAD_ID), prefs.getString(SharedConstants.OUT_AMT));
+                        homeController.generateOrderId(
+                            prefs.getString(SharedConstants.LOAN_LEAD_ID), prefs.getString(SharedConstants.OUT_AMT));
                       } else {
                         ShortMessage.toast(title: "Getting Order Id");
                       }

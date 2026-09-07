@@ -9,11 +9,12 @@ import 'package:tejas_loan/services/api_constant/api_constants.dart';
 import 'package:tejas_loan/utils/color_constants.dart';
 import 'package:tejas_loan/utils/image_constants.dart';
 import 'package:tejas_loan/utils/shared_constants.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../custom_widgets/custom_button.dart';
 import '../custom_widgets/custom_toast_snack_bar.dart';
 import '../main.dart';
+import 'terms_conditions_page.dart';
+import 'privacy_policy_page.dart';
 
 class LogingPage extends GetView<LogingController> {
   const LogingPage({super.key});
@@ -171,11 +172,7 @@ class LogingPage extends GetView<LogingController> {
                                       style: TextStyle(color: Colors.blue, fontSize: 15.sp),
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () async {
-                                          // Get.to(
-                                          //     TermsAndConditionsScreen());
-                                          //
-                                          await launchUrl(Uri.parse(SharedConstants.Terms_Condition_Url),
-                                              mode: LaunchMode.inAppWebView);
+                                          Get.to(() => const TermsAndConditionsScreen());
                                         }),
                                   TextSpan(
                                       text: " , ",
@@ -187,9 +184,7 @@ class LogingPage extends GetView<LogingController> {
                                       style: TextStyle(color: Colors.blue, fontSize: 15.sp),
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () async {
-                                          // Get.to(PrivacyPolicyScreen());
-                                          await launchUrl(Uri.parse(SharedConstants.Privacy_Policy_Url),
-                                              mode: LaunchMode.inAppWebView);
+                                          Get.to(() => const PrivacyPolicyScreen());
                                         }),
                                   TextSpan(
                                       text: " and ",
